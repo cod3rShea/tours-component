@@ -14,10 +14,10 @@ function App() {
 		try {
 			const response = await fetch(url);
 			const tours = await response.json();
-			console.log(tours);
 			setLoading(false);
 			setTours(tours);
 		} catch (error) {
+			setLoading(false);
 			console.log(error);
 		}
 	};
@@ -36,7 +36,7 @@ function App() {
 
 	return (
 		<main>
-			<Tours />
+			<Tours tours={tours} />
 		</main>
 	);
 }
